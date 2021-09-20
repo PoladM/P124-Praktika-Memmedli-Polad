@@ -1,0 +1,14 @@
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\bin\Debug\netcoreapp3.1\HomeWorks.exe
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\bin\Debug\netcoreapp3.1\HomeWorks.deps.json
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\bin\Debug\netcoreapp3.1\HomeWorks.runtimeconfig.json
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\bin\Debug\netcoreapp3.1\HomeWorks.runtimeconfig.dev.json
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\bin\Debug\netcoreapp3.1\HomeWorks.dll
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\bin\Debug\netcoreapp3.1\HomeWorks.pdb
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\obj\Debug\netcoreapp3.1\HomeWorks.csproj.AssemblyReference.cache
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\obj\Debug\netcoreapp3.1\HomeWorks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\obj\Debug\netcoreapp3.1\HomeWorks.AssemblyInfoInputs.cache
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\obj\Debug\netcoreapp3.1\HomeWorks.AssemblyInfo.cs
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\obj\Debug\netcoreapp3.1\HomeWorks.csproj.CoreCompileInputs.cache
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\obj\Debug\netcoreapp3.1\HomeWorks.dll
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\obj\Debug\netcoreapp3.1\HomeWorks.pdb
+C:\Users\memme\source\repos\HomeWorks\HomeWorks\obj\Debug\netcoreapp3.1\HomeWorks.genruntimeconfig.cache
