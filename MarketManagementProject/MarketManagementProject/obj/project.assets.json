@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\memme\\source\\repos\\MarketManagementProject\\MarketManagementProject\\MarketManagementProject.csproj",
+      "projectUniqueName": "C:\\Users\\memme\\OneDrive\\Masaüstü\\Praktika\\MarketManagementProject\\MarketManagementProject\\MarketManagementProject.csproj",
       "projectName": "MarketManagementProject",
-      "projectPath": "C:\\Users\\memme\\source\\repos\\MarketManagementProject\\MarketManagementProject\\MarketManagementProject.csproj",
+      "projectPath": "C:\\Users\\memme\\OneDrive\\Masaüstü\\Praktika\\MarketManagementProject\\MarketManagementProject\\MarketManagementProject.csproj",
       "packagesPath": "C:\\Users\\memme\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\memme\\source\\repos\\MarketManagementProject\\MarketManagementProject\\obj\\",
+      "outputPath": "C:\\Users\\memme\\OneDrive\\Masaüstü\\Praktika\\MarketManagementProject\\MarketManagementProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\memme\\AppData\\Roaming\\NuGet\\NuGet.Config",

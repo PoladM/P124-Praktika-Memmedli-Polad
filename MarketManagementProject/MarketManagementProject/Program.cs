@@ -123,10 +123,22 @@ namespace MarketManagementProject
             {
                 Console.WriteLine("Name:");
                 string productname = Console.ReadLine();
+
+                string typestring;
+                double productprice;
+
+                do
+                {
                 Console.WriteLine("Price:");
-                double productprice = int.Parse(Console.ReadLine());
-                Console.WriteLine("Say:");
-                int productcount = int.Parse(Console.ReadLine());
+                typestring = (Console.ReadLine());
+                } while (!double.TryParse(typestring, out productprice) || productprice <= 0);
+
+                int productcount;
+                do
+                {
+                    Console.WriteLine("Say:");
+                    typestring = (Console.ReadLine());
+                } while (!int.TryParse(typestring, out productcount) || productcount <= 0);
                 string category;
                 string[] typeNames = Enum.GetNames(typeof(Category));
                 for (int i = 0; i < typeNames.Length; i++)
@@ -138,11 +150,10 @@ namespace MarketManagementProject
                 {
                     Console.WriteLine("Secim edin:");
                     category = Console.ReadLine();
-                } while (!int.TryParse(category, out typeInt));
+                } while (!int.TryParse(category, out typeInt) || typeInt <= 0 || typeInt > typeNames.Length);
                 Category category1 = (Category)typeInt;
 
                 marketableService.AddProduct(productname, productprice, productcount, category1);
-                
             }
 
             static void EditProduct(ref MarketableService marketableService)
@@ -152,10 +163,19 @@ namespace MarketManagementProject
                 int productcode = int.Parse(Console.ReadLine());
                 Console.WriteLine("newName:");
                 string productname = Console.ReadLine();
+                string typestring ;
+                double productprice;
+                do
+                {
                 Console.WriteLine("newPrice:");
-                double productprice = int.Parse(Console.ReadLine());
+                typestring = Console.ReadLine();
+                } while (!double.TryParse(typestring, out productprice) || productprice <= 0);
+                int productcount;
+                do
+                {
                 Console.WriteLine("newCount:");
-                int productcount = int.Parse(Console.ReadLine());
+                typestring = (Console.ReadLine());
+                } while (!int.TryParse(typestring, out productcount) || productcount<=0 );
                 string category;
                 string[] typeNames = Enum.GetNames(typeof(Category));
                 for (int i = 0; i < typeNames.Length; i++)
@@ -186,7 +206,7 @@ namespace MarketManagementProject
                 {
                     Console.WriteLine("Secim edin:");
                     category = Console.ReadLine();
-                } while (!int.TryParse(category, out typeInt));
+                } while (!int.TryParse(category, out typeInt) || typeInt <= 0 || typeInt > typeNames.Length);
                 Category category1 = (Category)typeInt;
                 if (marketableService.ShowProductByCategory(category1).Length != 0)
                 {
@@ -204,8 +224,8 @@ namespace MarketManagementProject
             static void ShowProductByProductPrice(ref MarketableService marketableService)
             {
                 Console.WriteLine("Qiymet araliqini qeyd edin. Excample: (x AZN - den, y AZN - ye)");
-                int minproductprice = int.Parse(Console.ReadLine());
-                int maxproductprice = int.Parse(Console.ReadLine());
+                double minproductprice = double.Parse(Console.ReadLine());
+                double maxproductprice = double.Parse(Console.ReadLine());
 
                 if (marketableService.ShowProductByProductPrice(minproductprice, maxproductprice).Length != 0)
                 {
@@ -246,10 +266,7 @@ namespace MarketManagementProject
                 }
                 int productcode = int.Parse(Console.ReadLine());
 
-
-
                 marketableService.AddSales(productcode);
-
 
             }
 
@@ -272,22 +289,23 @@ namespace MarketManagementProject
             static void ShowSalesByGivenSalesNumber(ref MarketableService marketableService)
             {
                 Console.WriteLine("Numbers:");
-                foreach (Sale item in marketableService.Sales)
+                foreach (Sale numbers in marketableService.Sales)
                 {
-                    Console.WriteLine(item.SalesNumber);
+                    Console.WriteLine(numbers.SalesNumber);
                 }
                 int salesnumber = int.Parse(Console.ReadLine());
 
+                Sale item = marketableService.ShowSalesByGivenSalesNumber(salesnumber);
 
-                foreach (Salesİtem item2 in marketableService.ShowSalesByGivenSalesNumber(salesnumber).Salesİtem)
+                foreach (Salesİtem item2 in item.Salesİtem)
                 {
-                    Sale item = marketableService.ShowSalesByGivenSalesNumber(salesnumber);
-                    Console.WriteLine($"SaleNumber: {item.SalesNumber} Amount: {item.SalesAmount} SalesCount: {item.Date} ---- ItemNumber: {item2.ItemNumber} Item: {item2.ItemProduct} Count: {item2.ItemCount}");
+                    Console.WriteLine($"SaleNumber: {item.SalesNumber} Amount: {item.SalesAmount} SalesCount: {item.Date} SaledProductsCount:{marketableService.Sales.Length} ---- ItemNumber: {item2.ItemNumber} Item: {item2.ItemProduct.ProductName} Count: {item2.ItemCount}");
                 }
             }
 
             static void ShowSalesByDate(ref MarketableService marketableService)
             {
+
                 Console.WriteLine("Sales Date:");
                 DateTime date = DateTime.Parse(Console.ReadLine());
 
@@ -321,10 +339,10 @@ namespace MarketManagementProject
             {
                 Console.WriteLine("Sale Amount1 - Sale Amount2");
                 Console.WriteLine("Amount1:");
-                int salesamountfrom = int.Parse(Console.ReadLine());
+                double salesamountfrom = double.Parse(Console.ReadLine());
 
                 Console.WriteLine("Amount2:");
-                int salesamountto = int.Parse(Console.ReadLine());
+                double salesamountto = double.Parse(Console.ReadLine());
 
                 foreach (Sale item in marketableService.ShowSalesBySalesAmount(salesamountfrom, salesamountto))
                 {

@@ -21,17 +21,17 @@ namespace MarketManagementProject
         {
 
             Product product = new Product(productname, productprice, productcount, category);
-           
+
             Array.Resize(ref _products, _products.Length + 1);
             _products[_products.Length - 1] = product;
 
-            
+
 
             foreach (var item in _products)
             {
                 Console.WriteLine($"{item.ProductName} {item.Category}");
             }
-            
+
 
         }
 
@@ -45,28 +45,27 @@ namespace MarketManagementProject
                     {
 
 
-                        string itemproduct = item.ProductName;
+                        //string itemproduct = item.ProductName;
                         Console.WriteLine($"Satilan Mehsul sayi {item.ProductCount}");
                         Console.WriteLine("Nece Mehsul Satilacaq:");
                         int itemcount = int.Parse(Console.ReadLine());
                         if (item.ProductCount >= itemcount)
                         {
-                            
-                                Console.WriteLine("Satis Meblegi:");
-                                double salesamount = double.Parse(Console.ReadLine());
-                                Console.WriteLine("Tarix:");
-                                DateTime date = DateTime.Parse(Console.ReadLine());
-                                Sale sales = new Sale(salesamount, date);
 
+                            //Console.WriteLine("Satis Meblegi:");
+                            //double salesamount = double.Parse(Console.ReadLine());
+                            Console.WriteLine("Tarix:");
+                            DateTime date = DateTime.Parse(Console.ReadLine());
+                            Sale sales = new Sale(date);
 
-                                Array.Resize(ref _sales, _sales.Length + 1);
-                                _sales[_sales.Length - 1] = sales;
+                            Array.Resize(ref _sales, _sales.Length + 1);
+                            _sales[_sales.Length - 1] = sales;
 
-                                Salesİtem salesİtem = new Salesİtem(itemproduct, itemcount);
-                                sales.AddSalesItem(salesİtem);
+                            Salesİtem salesİtem = new Salesİtem(item, itemcount);
+                            sales.AddSalesItem(salesİtem);
+                            sales.DeclareSalesAmount();
+                            item.ProductCount = item.ProductCount - itemcount;
 
-                                item.ProductCount = item.ProductCount - itemcount;
-                            
                         }
                         //else if(item.ProductCount == itemcount)
                         //{
@@ -105,7 +104,7 @@ namespace MarketManagementProject
                 }
             }
 
-            
+
         }
 
         public void EditProduct(int productcode, string productname, double productprice, int productcount, Category category)
@@ -126,44 +125,71 @@ namespace MarketManagementProject
 
         public void ReturnProductFromSales(/*Sale sales, *//*string itemproduct, int itemcount*/ )
         {
-            Console.WriteLine("Sales Amount:");
-            double salesamount = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Sales Amount:");
+            //double salesamount = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Date:");
-            DateTime date = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("Date:");
+            //DateTime date = DateTime.Parse(Console.ReadLine());
 
-            Console.WriteLine("ItemProduct:");
-            string itemproduct = Console.ReadLine();
+            //Console.WriteLine("ItemProduct:");
+            //string itemproduct = Console.ReadLine();
 
-            Console.WriteLine("ItemCount:");
-            int itemcount = int.Parse(Console.ReadLine());
+            //Console.WriteLine("ItemCount:");
+            //int itemcount = int.Parse(Console.ReadLine());
+            Console.WriteLine("Sales Number:");
+            int salesnumber = int.Parse(Console.ReadLine());
 
-            
+
             foreach (Sale item in _sales)
             {
-                foreach (var item2 in item.Salesİtem)
+                
+
+                if (salesnumber == item.SalesNumber)
                 {
-                    if (item.SalesAmount == salesamount && item.Date == date && item2.ItemProduct == itemproduct && item2.ItemCount == itemcount)
+                    Console.WriteLine("Product Code:");
+                    int productcode = int.Parse(Console.ReadLine());
+                    //int i;
+                    //int pos;
+
+                    //pos = Array.IndexOf(_sales, item);
+                    //for (i = pos; i < _sales.Length - 1; i++)
+                    //{
+                    //    _sales[i] = _sales[i + 1];
+                    //}
+                    //Array.Resize(ref _sales, _sales.Length - 1);
+
+                    foreach (var item2 in _products)
                     {
-                        int i;
-                        int pos;
-
-                        pos = Array.IndexOf(_sales, item);
-                        for (i = pos; i < _sales.Length - 1; i++)
+                        if (item2.ProductCode == productcode)
                         {
-                            _sales[i] = _sales[i + 1];
-                        }
-                        Array.Resize(ref _sales, _sales.Length - 1);
+                            Console.WriteLine("Nece mehsul qaytarilsin:");
+                            int itemcount = int.Parse(Console.ReadLine());
+                            foreach (var item3 in item.Salesİtem)
+                            {
+                                if (item3.ItemProduct == item2)
+                                {
+                                    if (item3.ItemCount >= itemcount)
+                                    {
+                                        item2.ProductCount = item2.ProductCount + itemcount;
+                                        item3.ItemCount = item3.ItemCount - itemcount;
+                                        item.SalesAmount = item3.ItemCount * item3.ItemProduct.ProductPrice;
+                                        Console.WriteLine("satis qaytarildi");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"{item3.ItemCount} ******* {itemcount}");
+                                        Console.WriteLine("Daxil etdiyiniz say aldiginiz saydan coxdur.");
+                                    }
+                                }
+                            }
 
-                        foreach (var item3 in _products)
-                        {
-                            item3.ProductCount = item3.ProductCount + itemcount;
                         }
                     }
                 }
+
             }
 
-            
+
         }
 
         public Sale[] ReturnSales()
@@ -186,7 +212,7 @@ namespace MarketManagementProject
                     }
                 }
             }
-                return arr2;
+            return arr2;
         }
 
         public Product[] ShowProductByCategory(Category category)
@@ -201,22 +227,23 @@ namespace MarketManagementProject
                     arr[arr.Length - 1] = item;
                 }
             }
-                
-                return arr;
+
+            return arr;
         }
 
-        public Product[] ShowProductByProductPrice(int minproductprice, int maxproductprice)
+        public Product[] ShowProductByProductPrice(double minproductprice, double maxproductprice)
         {
             Product[] arr = new Product[0];
-            for (int i = minproductprice; i <= maxproductprice; i++)
+            foreach (Product item in _products)
             {
-                foreach (Product item in _products)
+                for (double i = minproductprice; i <= item.ProductPrice && maxproductprice >= item.ProductPrice; i = i + item.ProductPrice)
                 {
-                    if (item.ProductPrice == i)
-                    {
-                        Array.Resize(ref arr, arr.Length + 1);
-                        arr[arr.Length - 1] = item;
-                    }
+                    //if (item.ProductPrice == i)
+                    //{
+                    Array.Resize(ref arr, arr.Length + 1);
+                    arr[arr.Length - 1] = item;
+                    //}
+
                 }
             }
             return arr;
@@ -239,7 +266,7 @@ namespace MarketManagementProject
         public Sale[] ShowSalesByDateRange(DateTime datefrom, DateTime dateto)
         {
             Sale[] arr = new Sale[0];
-            for (DateTime i = datefrom; i <= dateto; i=i.AddDays(1.0))
+            for (DateTime i = datefrom; i <= dateto; i = i.AddDays(1.0))
             {
                 foreach (Sale item in _sales)
                 {
@@ -259,28 +286,30 @@ namespace MarketManagementProject
             {
                 //foreach (var item2 in item.Salesİtem)
                 //{
-                    if (item.SalesNumber == salesnumber)
-                    {
-                        //Console.WriteLine($"SaleNumber: {item.SalesNumber} Amount: {item.SalesAmount} SalesCount: {item.Date} ---- ItemNumber: {item2.ItemNumber} Item: {item2.ItemProduct} Count: {item2.ItemCount}");
-                        return item;
-                    }
+                if (item.SalesNumber == salesnumber)
+                {
+                    //Console.WriteLine($"SaleNumber: {item.SalesNumber} Amount: {item.SalesAmount} SalesCount: {item.Date} ---- ItemNumber: {item2.ItemNumber} Item: {item2.ItemProduct} Count: {item2.ItemCount}");
+                    return item;
+                }
                 //}
             }
             return null;
         }
-        
-        public Sale[] ShowSalesBySalesAmount(int salesamountfrom, int salesamountto)
+
+        public Sale[] ShowSalesBySalesAmount(double salesamountfrom, double salesamountto)
         {
             Sale[] arr = new Sale[0];
-            for (int i = salesamountfrom; i <= salesamountto; i++)
+            foreach (var item in _sales)
             {
-                foreach (var item in _sales)
+                for (double i = salesamountfrom; i <= item.SalesAmount && salesamountto > item.SalesAmount; i = i + item.SalesAmount)
                 {
+
                     if (item.SalesAmount == i)
                     {
                         Array.Resize(ref arr, arr.Length + 1);
                         arr[arr.Length - 1] = item;
                     }
+
                 }
             }
             return arr;

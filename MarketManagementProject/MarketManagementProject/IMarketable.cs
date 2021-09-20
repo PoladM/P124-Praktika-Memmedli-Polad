@@ -13,12 +13,12 @@ namespace MarketManagementProject
         public Sale[] ReturnSales();
         public Sale[] ShowSalesByDateRange(DateTime datefrom, DateTime dateto);
         public Sale[] ShowSalesByDate(DateTime date);
-        public Sale[] ShowSalesBySalesAmount(int salesamountfrom, int salesamountto);
+        public Sale[] ShowSalesBySalesAmount(double salesamountfrom, double salesamountto);
         public Sale ShowSalesByGivenSalesNumber(int salesnumber);
         public void AddProduct(string productname, double productprice, int productcount, Category category);
         public void EditProduct(int productcode, string productname, double productprice, int productcount, Category category);
         public Product[] ShowProductByCategory(Category category);
-        public Product[] ShowProductByProductPrice(int minproductprice, int maxproductprice);
+        public Product[] ShowProductByProductPrice(double minproductprice, double maxproductprice);
         public Product[] ShearchProductByGivenProductText(string text);
         
     }

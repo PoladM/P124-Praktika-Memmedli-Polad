@@ -12,3 +12,17 @@ C:\Users\memme\source\repos\MarketManagementProject\MarketManagementProject\obj\
 C:\Users\memme\source\repos\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.dll
 C:\Users\memme\source\repos\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.pdb
 C:\Users\memme\source\repos\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.genruntimeconfig.cache
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\bin\Debug\netcoreapp3.1\MarketManagementProject.exe
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\bin\Debug\netcoreapp3.1\MarketManagementProject.deps.json
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\bin\Debug\netcoreapp3.1\MarketManagementProject.runtimeconfig.json
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\bin\Debug\netcoreapp3.1\MarketManagementProject.runtimeconfig.dev.json
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\bin\Debug\netcoreapp3.1\MarketManagementProject.dll
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\bin\Debug\netcoreapp3.1\MarketManagementProject.pdb
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.csproj.AssemblyReference.cache
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.AssemblyInfoInputs.cache
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.AssemblyInfo.cs
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.csproj.CoreCompileInputs.cache
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.dll
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.pdb
+C:\Users\memme\OneDrive\Masaüstü\Praktika\MarketManagementProject\MarketManagementProject\obj\Debug\netcoreapp3.1\MarketManagementProject.genruntimeconfig.cache

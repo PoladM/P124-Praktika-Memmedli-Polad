@@ -8,10 +8,10 @@ namespace MarketManagementProject
     {
         private static int count = 10;
         public int ItemNumber { get; set; }
-        public string ItemProduct { get; set; }
-        public int ItemCount { get; set; }
+        public Product ItemProduct { get; set; }
+        public double ItemCount { get; set; }
 
-        public Salesİtem(string itemproduct, int itemcount)
+        public Salesİtem(Product itemproduct, int itemcount)
         {
             count++;
             ItemNumber = count;
